@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <style>
+        img {
+            width: 1400px;
+            height: auto;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <script>
+        function showImage(src, target) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                target.src = fr.result;
+            }
+            fr.readAsDataURL(src.files[0]);
+        }
+
+        function updateImageSize(slider) {
+            var size = slider.value;
+            document.getElementById("myImage").style.width = size + "px";
+            document.getElementById("myImage").style.height = size / 2 + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <select id="mySelect" class="dropdown">
+        <option value="">Select an image:</option>
+        <option value="COLONJR-043_1QQ_0_0_256test">COLONJR-043_1QQ_0_0_256</option>
+        <option value="COLONJR-043_1QQ_0_0_512test">COLONJR-043_1QQ_0_0_512</option>
+        <option value="COLONJR-043_1QQ_0_2_256test">COLONJR-043_1QQ_0_2_256</option>
+        <option value="COLONJR-043_1QQ_0_2_512test">COLONJR-043_1QQ_0_2_512</option>
+        <option value="COLONJR-043_1QQ_0_3_256test">COLONJR-043_1QQ_0_3_256</option>
+        <option value="COLONJR-043_1QQ_0_3_512test">COLONJR-043_1QQ_0_3_512</option>
+        <option value="COLONJR-043_1QQ_0_4_256test">COLONJR-043_1QQ_0_4_256</option>
+        <option value="COLONJR-043_1QQ_0_4_512test">COLONJR-043_1QQ_0_4_512</option>
+
+    </select>
+    <input type="file" id="fileInput" style="display: none;"
+        onchange="showImage(this, document.getElementById('myImage'))" />
+    <img id="myImage" src="COLONJR-043_1QQ_0_3_256test.jpg" />
+    <script>
+        var imageNames = ['COLONJR-043_1QQ_0_3_256test',
+            'COLONJR-043_1QQ_0_0_256test',
+            'COLONJR-043_1QQ_0_0_512test',
+            'COLONJR-043_1QQ_0_2_256test',
+            'COLONJR-043_1QQ_0_2_512test',
+            'COLONJR-043_1QQ_0_3_512test',
+            'COLONJR-043_1QQ_0_4_256test',
+            'COLONJR-043_1QQ_0_4_512test'];
+        document.getElementById("mySelect").onchange = function () {
+            var fileInput = document.getElementById("fileInput");
+            var selectedImage = this.value;
+            if (selectedImage === "") {
+                fileInput.style.display = "block";
+            } else {
+                fileInput.value = null;
+                fileInput.style.display = "none";
+                for (var i = 0; i < imageNames.length; i++) {
+                    if (selectedImage === imageNames[i]) {
+                        document.getElementById("myImage").src = imageNames[i] + ".jpg";
+                    }
+                }
+            }
+        };
+
+    </script>
+
+
+</body>
+
+</html>
