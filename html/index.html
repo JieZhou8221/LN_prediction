@@ -44,6 +44,12 @@
         <option value="COLONJR-043_1QQ_0_4_256test">COLONJR-043_1QQ_0_4_256</option>
         <option value="COLONJR-043_1QQ_0_4_512test">COLONJR-043_1QQ_0_4_512</option>
 
+        <option value="COLONJR-048_1N_0_0_512test">COLONJR-048_1N_0_0_512</option>
+        <option value="COLONJR-048_1N_0_1_512test">COLONJR-048_1N_0_1_512</option>
+        <option value="COLONJR-048_1N_0_2_512test">COLONJR-048_1N_0_2_512</option>
+        <option value="COLONJR-048_1N_0_3_512test">COLONJR-048_1N_0_3_512</option>
+        <option value="COLONJR-048_1N_0_4_512test">COLONJR-048_1N_0_4_512</option>
+
     </select>
     <input type="file" id="fileInput" style="display: none;"
         onchange="showImage(this, document.getElementById('myImage'))" />
@@ -56,7 +62,12 @@
             'COLONJR-043_1QQ_0_2_512test',
             'COLONJR-043_1QQ_0_3_512test',
             'COLONJR-043_1QQ_0_4_256test',
-            'COLONJR-043_1QQ_0_4_512test'];
+            'COLONJR-043_1QQ_0_4_512test',
+            "COLONJR-048_1N_0_0_512test",
+            "COLONJR-048_1N_0_1_512test",
+            "COLONJR-048_1N_0_2_512test",
+            "COLONJR-048_1N_0_3_512test",
+            "COLONJR-048_1N_0_4_512test"];
         document.getElementById("mySelect").onchange = function () {
             var fileInput = document.getElementById("fileInput");
             var selectedImage = this.value;
